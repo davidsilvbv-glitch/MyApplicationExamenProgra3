@@ -9,9 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -42,7 +42,6 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FarmaciaApp() {
-    // Carga de inventario desde los datos de prueba del Checkpoint 3
     val inventario = remember { ScriptDatosFarmacia.cargarInventario() }
     var selectedTabIndex by remember { mutableIntStateOf(0) }
     val tabTitles = listOf("Medicamentos", "Cuidado Personal")
@@ -69,7 +68,7 @@ fun FarmaciaApp() {
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            PrimaryTabRow(
+            TabRow(
                 selectedTabIndex = selectedTabIndex
             ) {
                 tabTitles.forEachIndexed { index, title ->
